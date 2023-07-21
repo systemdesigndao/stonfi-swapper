@@ -10,6 +10,7 @@ import { useJettonStore } from '../stores/jettons';
 import { notify } from '@kyvg/vue3-notification';
 import { useWalletStore } from '../stores/wallet';
 import { getNowTimestamp } from '../utils/time';
+import { Coins } from 'ton3-core';
 
 const storeWallet = useWalletStore();
 const storeModals = useModalsStore();
@@ -56,13 +57,18 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
         // from everyone who using this code to swap jettons
         referralAddress: REFERRAL_ADDRESS,
       });
+
+      // we are increasing because only this way we can provide `j` transfers
+      // const increasedGasAmount = new Coins(Coins.fromNano(params.gasAmount));
+
+      // console.log(increasedGasAmount.toNano(), params.gasAmount.add(TonWeb.utils.toNano('0.2')).toNumber());
       
       const transaction = {
           validUntil: Date.now() + 1000000,
           messages: [
               {
                 address: params.to.toString(),
-                amount: params.gasAmount.add(TonWeb.utils.toNano('0.2')),
+                amount: Coins.fromNano(params.gasAmount.toNumber()).add(new Coins('0.2')).toNano(),
                 payload: bytesToBase64(await params.payload.toBoc()),
               }
           ]
