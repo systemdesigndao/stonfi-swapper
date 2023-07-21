@@ -179,7 +179,7 @@ const { wallet, loading } = storeToRefs(storeWallet)
     <div v-else>
       <main class="flex flex-col bg-[#0F0F0F] h-screen p-[1.25rem]">
         <div class="w-full flex justify-center">
-          <div class="text-white-1" v-if="data === undefined"><spinner color="green" size="8" /></div>
+          <div class="text-white-1" v-if="data === undefined"><spinner color="red" size="8" /></div>
             <div v-else>
                 <div v-if="error === undefined"><span class="text-white-1">{{error}}</span></div>
                 <div><span class="text-white-1">{{ coinsToNumber(castedData.account[0].balance, 9) }} 💎</span>
@@ -188,7 +188,7 @@ const { wallet, loading } = storeToRefs(storeWallet)
         </div>
       <AppSwapForm />
       <div class="flex justify-center mt-1.5">
-        <AppExtraButton text="Disconnect" :on_click="disconnect" width="w-[220px]" height="h-[60px]" />
+        <AppExtraButton text="Disconnect" :on_click="disconnect" width="w-[220px]" height="h-[60px]" buttonColor="bg-orange-light" textColor="text-black-5" />
       </div>
       </main>
     </div>

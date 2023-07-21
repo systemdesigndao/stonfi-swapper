@@ -14,7 +14,14 @@ module.exports = {
     extend: {
       ...tdsTheme,
       fontFamily: {
-        sans: ["Orbitron"],
+        sans: ["Mulish"],
+      },
+      colors: {
+        ...tdsTheme.colors,
+        orange: {
+          light: "#FFAA01",
+          dark: "#FD9900",
+        },
       },
     },
   },

@@ -51,7 +51,7 @@ const { connecting } = storeToRefs(store)
 </script>
 
 <template>
-    <AppExtraButton text="Connect wallet" :on_click="storeModals.showConnectWalletModalOpen" width="w-[217px]" height="h-[54px]" />
+    <AppExtraButton text="Connect wallet" buttonColor="bg-orange-light" textColor="text-black-5" :on_click="storeModals.showConnectWalletModalOpen" width="w-[217px]" height="h-[54px]" />
     <AppModal :show="storeModals.showConnectWalletModal" :close="storeModals.showConnectWalletModalHide">
       <template #content>
         <span class="text-[#CDFD51] text-left flex w-full pl-[30px] text-[1.5625rem] font-normal">

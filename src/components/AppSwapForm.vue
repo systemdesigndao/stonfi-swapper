@@ -95,14 +95,14 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
             <div class="w-full mt-[5.31rem] mb-[1.25rem]">
           <div class="max-w-[28.1875rem] h-[19.1875rem] mx-auto">
             <div class="flex justify-between h-[3.75rem] items-center">
-              <span class="text-[#CDFD51] text-[1.5625rem] tracking-[-0.0625rem] leading-[3.75rem] font-normal">
+              <span class="text-orange-light text-[1.5625rem] tracking-[-0.0625rem] leading-[3.75rem] font-normal">
                 Swap tokens
               </span>
               <div class="flex">
                 <!-- class="mr-[1.44rem]" -->
                 <button @click="storeJettons.leftTokenSwapToRightToken" :disabled="(storeJettons.leftToken === undefined && storeJettons.rightToken === undefined)">
                   <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                    <path d="M2.52065 3.29832L2.41498 3.41754L2.30233 3.30489L0.15 1.15256V6.975H5.97244L3.99452 4.99708L3.89671 4.89927L3.98629 4.79388C5.31552 3.22985 7.28238 2.225 9.5 2.225C13.47 2.225 16.6937 5.3992 16.7735 9.35H18.8488C18.7687 4.25477 14.6143 0.15 9.5 0.15C6.71725 0.15 4.2303 1.36949 2.52065 3.29832ZM15.0055 14.0029L15.1033 14.1007L15.0137 14.2061C13.6845 15.7702 11.7176 16.775 9.5 16.775C5.52997 16.775 2.30628 13.6008 2.22651 9.65H0.151178C0.231289 14.7452 4.38567 18.85 9.5 18.85C12.2791 18.85 14.7697 17.6305 16.4793 15.7017L16.585 15.5825L16.6977 15.6951L18.85 17.8474V12.025H13.0276L15.0055 14.0029Z" fill="#CDFD51" stroke="black" stroke-width="0.3"/>
+                    <path d="M2.52065 3.29832L2.41498 3.41754L2.30233 3.30489L0.15 1.15256V6.975H5.97244L3.99452 4.99708L3.89671 4.89927L3.98629 4.79388C5.31552 3.22985 7.28238 2.225 9.5 2.225C13.47 2.225 16.6937 5.3992 16.7735 9.35H18.8488C18.7687 4.25477 14.6143 0.15 9.5 0.15C6.71725 0.15 4.2303 1.36949 2.52065 3.29832ZM15.0055 14.0029L15.1033 14.1007L15.0137 14.2061C13.6845 15.7702 11.7176 16.775 9.5 16.775C5.52997 16.775 2.30628 13.6008 2.22651 9.65H0.151178C0.231289 14.7452 4.38567 18.85 9.5 18.85C12.2791 18.85 14.7697 17.6305 16.4793 15.7017L16.585 15.5825L16.6977 15.6951L18.85 17.8474V12.025H13.0276L15.0055 14.0029Z" fill="#FFAA01" stroke-width="0.3"/>
                   </svg>
                 </button>
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="28" height="21" viewBox="0 0 28 21" fill="none">
@@ -129,7 +129,7 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
                     </svg>
                     <AppModal :show="storeModals.showLeftSearchTokensModal" :close="storeModals.showLeftSearchTokensModalHide">
                       <template #content>
-                        <span class="text-[#CDFD51] text-left flex w-full pl-[30px] text-[1.5625rem] font-normal mt-[1rem]">
+                        <span class="text-orange-light dark:text-orange-dark text-left flex w-full pl-[30px] text-[1.5625rem] font-normal mt-[1rem]">
                           Select token
                         </span>
                         <template v-for="jetton in storeJettons.entity">
@@ -174,7 +174,7 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
                   </span>
                   <AppModal :show="storeModals.showRightSearchTokensModal" :close="storeModals.showRightSearchTokensModalHide">
                       <template #content>
-                        <span class="text-[#CDFD51] text-left flex w-full pl-[30px] text-[1.5625rem] font-normal mt-[1rem]">
+                        <span class="text-orange-light dark:text-orange-dark text-left flex w-full pl-[30px] text-[1.5625rem] font-normal mt-[1rem]">
                           Select token
                         </span>
                         <template v-for="jetton in storeJettons.entity">
@@ -220,7 +220,7 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
                 <div>
               </div>
             </div>
-            <AppExtraButton :text="(storeJettons.leftToken !== undefined && storeJettons.rightToken !== undefined) ? 'Swap' : 'Select tokens' " width="max-w-[450px] w-full" height="h-[61px]" @click="swapJettons(storeJettons.leftToken?.addressMinterBouncable!, storeJettons.rightToken?.addressMinterBouncable!, (Number(leftToken) * (10 ** storeJettons.leftToken?.decimals!)).toString())" :disabled="(storeJettons.leftToken === undefined && storeJettons.rightToken === undefined)" />
+            <AppExtraButton :text="(storeJettons.leftToken !== undefined && storeJettons.rightToken !== undefined) ? 'Swap' : 'Select tokens' " width="max-w-[450px] w-full" height="h-[61px]" buttonColor="bg-orange-light" textColor="text-black-5" @click="swapJettons(storeJettons.leftToken?.addressMinterBouncable!, storeJettons.rightToken?.addressMinterBouncable!, (Number(leftToken) * (10 ** storeJettons.leftToken?.decimals!)).toString())" :disabled="(storeJettons.leftToken === undefined && storeJettons.rightToken === undefined)" />
           </div>
         </div>
 </template>
