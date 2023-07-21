@@ -9,6 +9,7 @@ import AppModal from '../components/AppModal.vue';
 import { useJettonStore } from '../stores/jettons';
 import { notify } from '@kyvg/vue3-notification';
 import { useWalletStore } from '../stores/wallet';
+import { getNowTimestamp } from '../utils/time';
 
 const storeWallet = useWalletStore();
 const storeModals = useModalsStore();
@@ -29,7 +30,7 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
   try {
       const WALLET_ADDRESS = storeWallet.wallet?.address.bounceable!; // YOUR WALLET ADDRESS
 
-      const REFERRAL_ADDRESS = 'EQDsQeFKUlh8iFjF_7DyUA7j0Y6kvI4CFEXiU7Gd7qQgks-7'; // REFERRAL ADDRESS (OPTIONAL)
+      const REFERRAL_ADDRESS = undefined; // REFERRAL ADDRESS (OPTIONAL)
 
       const JETTON0 = leftJetton;
       const JETTON1 = rightJetton;
@@ -41,16 +42,15 @@ const swapJettons = async (leftJetton: string, rightJetton: string, amount: stri
         address: ROUTER_REVISION_ADDRESS.V1,
       });
 
-      // Build transaction params to swap 1e6 JETTON0 to JETTON1
-      // but not less than 1e6 JETTON1
       const params = await router.buildSwapJettonTxParams({
         userWalletAddress: WALLET_ADDRESS,
         offerJettonAddress: JETTON0,
         askJettonAddress: JETTON1,
-        // 1000000, 1e6 - 1 TON for jUSDT
         offerAmount: amount,
+        // some slippage thing, need add calculating minAskAmount
         minAskAmount: 0,
-        queryId: 12345,
+        // https://t.me/tondev/76655
+        queryId: getNowTimestamp(),
 
         // Set your address if you want to give referral payouts
         // from everyone who using this code to swap jettons
