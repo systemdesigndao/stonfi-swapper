@@ -68,7 +68,7 @@ watch(
     const splittedRaw = storeWallet.wallet?.address.raw.split(':');
 
     const r = await fetcher('https://dton.io/graphql?getBalances', gResponse, {
-      "owner_wc": splittedRaw![0],
+      "owner_wc": Number(splittedRaw![0]),
       "owner_address": splittedRaw![1].toUpperCase(),
     });
 
