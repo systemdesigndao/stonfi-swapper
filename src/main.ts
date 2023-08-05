@@ -1,6 +1,5 @@
 import { createApp, defineAsyncComponent } from "vue";
 import "./style.css";
-// import Home from "./Home.vue";
 import App from "./App.vue";
 import { createPinia } from "pinia";
 import Notifications from "@kyvg/vue3-notification";
