@@ -1,6 +1,6 @@
 /* eslint-env node */
-import { tdsTheme } from "@designervoid/ton-design-system";
-import flowbite from "flowbite/plugin";
+const { tdsTheme } = require("@designervoid/ton-design-system");
+const flowbite = require('flowbite/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -25,5 +25,7 @@ module.exports = {
       },
     },
   },
-  plugins: [flowbite],
+  plugins: [
+    flowbite,
+  ],
 };
