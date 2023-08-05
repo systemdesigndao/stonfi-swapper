@@ -3,8 +3,7 @@ import { storeToRefs } from 'pinia';
 import { onMounted, watch } from 'vue';
 import {TonConnect} from '@tonconnect/sdk';
 import { ConnectedWalletFromAPI, useWalletStore } from './stores/wallet';
-import AppConnectWallet from './components/AppConnectWallet.vue';
-import AppExtraButton from './components/AppExtraButton.vue';
+
 import { notify } from '@kyvg/vue3-notification';
 import ky from 'ky';
 import WebApp from '@twa-dev/sdk'
@@ -12,7 +11,6 @@ import useSWRV, { mutate as m } from 'swrv'
 import { fetcher, coinsToNumber } from './utils';
 import { gql } from 'graphql-request';
 import { Spinner } from 'flowbite-vue'
-import AppSwapForm from './components/AppSwapForm.vue';
 
 const storeWallet = useWalletStore()
 

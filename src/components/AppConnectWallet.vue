@@ -3,8 +3,6 @@ import { storeToRefs } from 'pinia';
 import QRCodeStyling from './QRCodeStyling.vue';
 import { useWalletStore } from '../stores/wallet';
 import { useModalsStore } from '../stores/modals';
-import AppExtraButton from './AppExtraButton.vue';
-import AppModal from './AppModal.vue';
 
 const store = useWalletStore()
 const storeModals = useModalsStore();
